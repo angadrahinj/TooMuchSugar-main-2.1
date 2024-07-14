@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba015fe4d0a59494eadfc2254b437423, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  fallDamage: 10
+  learntAttack: 1
+  learntHeal: 0
+  learntRoll: 0
+  playerMovementState: 0
+  stickyMultiplier: 0.5
+  groundCheckRadius: 0.25
+  wallCheckDistance: 0.3
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  normalMovementVelocity: 7
+  movementVelocity: 7
+  normalJumpVelocity: 20
+  jumpVelocity: 20
+  coyoteTime: 0.15
+  variableJumpHeightMultiplier: 0.5
+  normalWallSlideVelocity: 3
+  wallSlideVelocity: 3
+  normalWallJumpVelocity: 20
+  wallJumpVelocity: 20
+  wallJumpTime: 0.2
+  wallJumpCoyoteTime: 0.4
+  wallJumpAngle: {x: 1, y: 2}
+  rollVelocity: 18
+  rollDuration: 0.3
+  rollCooldown: 0.8
+  distBetweenAfterImages: 1
+  attackDamage: 2
+  attackRadius: 0.5
+  attackCooldownDuration: 0.3
+  knockBackStrength: 5
