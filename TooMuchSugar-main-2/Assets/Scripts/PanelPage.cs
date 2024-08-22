@@ -12,13 +12,30 @@ public class PanelPage : MonoBehaviour
     [ContextMenu("Display next panel")]
     public void DisplayNextPanel()
     {
-        panels[count].SetActive(true);
-        count++;
-
+        Debug.Log("Displaying next panel");
         if (count >= panels.Count)
         {
             // Refer to event in panel manager inst
-            // PanelManager.instance.OnPanelPageUpdate?.Invoke();
+            PanelManager.instance.DisplayNextPage();
+            return;
         }
+
+        panels[count].SetActive(true);
+        count++;
+        Debug.Log(count);
+    }
+
+    public void ResetPanelPageCounter() {
+        count = 0;
+    }
+
+    public void HideAllPanels()
+    {
+        foreach(GameObject g in panels)
+        {
+            g.SetActive(false);
+        }
+
+        ResetPanelPageCounter();
     }
 }

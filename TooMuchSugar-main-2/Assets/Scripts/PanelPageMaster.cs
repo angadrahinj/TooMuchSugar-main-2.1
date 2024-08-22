@@ -5,34 +5,55 @@ using UnityEngine;
 public class PanelPageMaster : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> panelPages = new List<GameObject>();
+    public List<GameObject> panelPages = new List<GameObject>();
     public int count = 0;
 
-    //Reset count to 0 everytime a comic cutscene ends.
-
-    [ContextMenu("Display next page")]
+    [ContextMenu("Display Next Page")]
     public void DisplayNextPage()
     {
         if (count != 0)
         {
             HidePreviousPage();
         }
-        else if (count >= panelPages.Count)
+        if (count >= panelPages.Count)
         {
             //Refer to panel manager cutscene finish
+            PanelManager.instance.FinishComicCutscene();
+            // Debug.Log(count);
+            return;
         }
         panelPages[count].SetActive(true);
         count++;
+        // Debug.Log(count);
+    }
+
+    public void DisplayPreviousPage()
+    {
+        if (count > 1)
+        {
+            panelPages[count - 1].GetComponent<PanelPage>().HideAllPanels();
+            panelPages[count - 1].SetActive(false);
+            count--;
+
+            panelPages[count - 1].SetActive(true);
+        }
+    }
+
+    [ContextMenu("Display Next Image")]
+    public void DisplayNextImage()
+    {
+        panelPages[count - 1].GetComponent<PanelPage>().DisplayNextPanel();
     }
 
     [ContextMenu("Hide previous page")]
     public void HidePreviousPage()
     {
+        panelPages[count - 1].GetComponent<PanelPage>().HideAllPanels();
         panelPages[count - 1].SetActive(false);
     }
 
     [ContextMenu("Reset counter")]
-    public void ResetPanelPageCounter() {
+    public void ResetPanelPagesCounter() {
         count = 0;
     }
 }

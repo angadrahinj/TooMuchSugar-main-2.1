@@ -275,9 +275,27 @@
             "id": "6bf37a7e-f879-4f9d-bc9d-20be769367da",
             "actions": [
                 {
-                    "name": "Skip",
+                    "name": "Normal Interact",
                     "type": "Button",
                     "id": "59bd3a86-f406-47c3-93a8-b9698784e189",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skip Page",
+                    "type": "Button",
+                    "id": "3929f6e3-364a-4898-9164-0602cd4be802",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Go Back Page",
+                    "type": "Button",
+                    "id": "68a2ff7c-bd6f-47ce-a5dd-5708abea8e2f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -292,7 +310,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Skip",
+                    "action": "Normal Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -303,7 +321,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Skip",
+                    "action": "Normal Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1387ae3-a460-4fe0-919f-fa5f2eca5e90",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Normal Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c950836-4d01-4a75-8253-33f1495a2f27",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip Page",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "16e3c3ab-8b33-4f85-adac-1f1b9f333239",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Go Back Page",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

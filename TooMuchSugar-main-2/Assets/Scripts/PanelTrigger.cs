@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class PanelTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] PanelPageMaster panelPageMaster;
 
-    // Update is called once per frame
-    void Update()
+    public void StartCutscene()
     {
-        
+        PanelManager.instance.StartComicCutscene(panelPageMaster);
     }
-}
+}   

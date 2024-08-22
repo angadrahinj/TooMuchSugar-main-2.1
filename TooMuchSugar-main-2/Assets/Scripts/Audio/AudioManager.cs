@@ -10,8 +10,6 @@ public class AudioManager : MonoBehaviour
     
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-
         SetupSound(musicLibrary);
         SetupSound(sfxLibrary);
 
