@@ -120,7 +120,7 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        player.transform.position = PlayerRespawnManager.instance.currentRespawnPoint;
+        // player.transform.position = PlayerRespawnManager.instance.currentRespawnPoint;
         StopAllCoroutines();
         if (health <= 0)
         {

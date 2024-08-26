@@ -14,9 +14,13 @@ public class WaterKill : MonoBehaviour
             healthManager.Damage(liquidDamageAmount);
 
             float playerCurrentHealth = healthManager.ReturnHealth();
-            if (playerCurrentHealth >= 0)
+            if (playerCurrentHealth <= 0)
             {
                 healthManager.Die();
+            }
+            else
+            {
+                PlayerRespawnManager.instance.StartTemporaryRespawnSequence();
             }
         }
     }

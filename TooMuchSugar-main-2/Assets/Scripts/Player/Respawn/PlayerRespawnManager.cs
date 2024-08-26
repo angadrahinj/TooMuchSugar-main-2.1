@@ -11,6 +11,7 @@ public class PlayerRespawnManager : MonoBehaviour
     public PlayerData playerData;
     public float deathTimer = 2f;
     public Vector3 currentRespawnPoint;
+    public Vector3 temporaryRespawnPoint;
     public Transform halfwayRespawnPoint;
     public Transform startingRespawnPoint;
 
@@ -23,6 +24,7 @@ public class PlayerRespawnManager : MonoBehaviour
 
         halfwayRespawnPoint = transform.Find("HalfwayRespawn");
         startingRespawnPoint = transform.Find("StartingRespawn");
+        temporaryRespawnPoint = startingRespawnPoint.position;
     }
 
     void Start()
@@ -39,6 +41,12 @@ public class PlayerRespawnManager : MonoBehaviour
         player = null;
     }
 
+    #region Death Sequence
+    public void StartDeathSequence()
+    {
+        StartCoroutine(DeathSequence());
+    }
+
     IEnumerator DeathSequence()
     {
 
@@ -50,20 +58,41 @@ public class PlayerRespawnManager : MonoBehaviour
         HealthBar.instance.SetMaxHealth(playerData.maxHealth);
         player.GetComponent<PlayerHealthManager>().SetHealth(playerData.maxHealth);
     }
+    #endregion
 
-    public void StartDeathSequence()
+    #region Temporary Respawn Sequence
+    public void StartTemporaryRespawnSequence()
     {
-        StartCoroutine(DeathSequence());
+        StartCoroutine(TemporaryRespawnSequence());
     }
 
+    IEnumerator TemporaryRespawnSequence()
+    {
+
+        player.SetActive(false);
+        Debug.Log("Current respawn point: " + temporaryRespawnPoint);
+        yield return new WaitForSeconds(deathTimer);
+        player.transform.position = temporaryRespawnPoint;
+        player.SetActive(true);
+    }
+
+    #endregion
+
+    #region Set Respawn Points
     public void SetRespawnPoint(Vector3 position)
     {
         currentRespawnPoint = position;
         Debug.Log("Respawn Complete");
     }
 
+    public void SetTemporaryRespawnPoint(Vector3 position)
+    {
+        temporaryRespawnPoint = position;
+    }
+
     public void SetHalfwayRespawnPoint()
     {
         SetRespawnPoint(halfwayRespawnPoint.transform.position);
     }
+    #endregion
 }
