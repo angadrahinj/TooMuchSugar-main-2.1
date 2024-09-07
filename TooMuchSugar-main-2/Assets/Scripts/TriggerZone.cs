@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class TriggerZone : MonoBehaviour
 {
     public bool oneShot = false;
-    private bool alreadyEntered = false;
+    public bool alreadyEntered = false;
     private bool alreadyExited = false;
  
     public string collisionTag;
