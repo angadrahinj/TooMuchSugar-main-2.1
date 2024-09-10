@@ -10,6 +10,7 @@ public class CameraManager : MonoBehaviour
  
     public static bool IsActiveCamera(CinemachineVirtualCamera camera)
     {
+        Debug.Log("Hello");    
         return camera == ActiveCamera;
     }
  
