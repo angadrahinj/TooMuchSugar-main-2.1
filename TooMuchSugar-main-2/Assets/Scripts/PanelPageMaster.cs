@@ -8,6 +8,16 @@ public class PanelPageMaster : MonoBehaviour
     public List<GameObject> panelPages = new List<GameObject>();
     public int count = 0;
 
+    public GameObject panelText;
+
+
+    public void DisplayNavigationText()
+    {
+        panelText.SetActive(true);
+    }
+
+   
+
     [ContextMenu("Display Next Page")]
     public void DisplayNextPage()
     {

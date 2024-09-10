@@ -44,12 +44,14 @@ public class PanelManager : MonoBehaviour
         panelPageMaster.gameObject.SetActive(true);
         currentPanelCutsceneMaster = panelPageMaster;
 
+        currentPanelCutsceneMaster.DisplayNavigationText();
         DisplayNextPage();
 
         SwitchToCutsceneInput();
     }
     public void FinishComicCutscene()
     {
+        currentPanelCutsceneMaster.gameObject.SetActive(false);
         currentPanelCutsceneMaster = null;
 
         //Handle sounds + game input
